@@ -1,0 +1,22 @@
+.App {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+body{
+  background-image: url("https://eskipaper.com/images/free-cloud-wallpaper-1.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+.jumbo{
+  width:30%;
+  height:40vh;
+  margin-top: 1%;
+  border: 1px solid rgb(49, 214, 255);
+}
+
+
