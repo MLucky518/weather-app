@@ -8,7 +8,7 @@ import Landing from "./components/Landing";
 function App() {
   const [lat, setLat] = useState(0);
   const [lon, setLon] = useState(0);
-
+  const [weatherData, setWeatherData] = useState({});
   useEffect(() => {
     window.navigator.geolocation.getCurrentPosition(
       (position) => {
@@ -25,7 +25,8 @@ function App() {
         `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_API_KEY}`
       )
       .then((res) => {
-        console.log(res);
+        setWeatherData(res.data);
+        console.log(weatherData);
         console.log("RESULTS BY ZIP:");
         console.log("CITY_NAME:", res.data.name);
         console.log("CURRENT WEATHER:", res.data.weather[0].main);
@@ -40,9 +41,10 @@ function App() {
     <Router>
       <Switch>
         <div className="App">
-        <Route exact path="/"><Landing/></Route>
-          <Route exact path="/weather"><WeatherCard /></Route>
-          <button onClick={() => getWeatherByZip()} />
+          <Landing getWeather={getWeatherByZip} />
+          <Route exact path="/weather">
+            <WeatherCard weatherData={weatherData} />
+          </Route>
         </div>
       </Switch>
     </Router>
