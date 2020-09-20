@@ -4,8 +4,8 @@ import {Link} from "react-router-dom";
 
 function Landing(props) {
   return (
-    <Jumbotron className = "jumbo">
-      <h1 className="display-3">WEATHERCHEK</h1>
+    <Jumbotron responsive className = "jumbo">
+      <h1  className="display-3">WEATHERCHEK</h1>
       <p className="lead">
         Simple Location Based Weather
       </p>
